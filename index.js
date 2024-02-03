@@ -1,9 +1,10 @@
 const express = require('express')
+const requestIp = require('request-ip')
 const app = express()
-const port = 3000
 
 app.get('/', (req, res) => {
-    res.send('Hello world')
+    const ipAddress = requestIp.getClientIp(req)
+    res.send(`Hello there, your IP adress: ${ipAddress}`)
 })
 
 module.exports = app
