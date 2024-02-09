@@ -3,6 +3,7 @@ const requestIp = require('request-ip')
 const bodyParser = require('body-parser');
 const app = express()
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/', (req, res) => {
     const ipAddress = requestIp.getClientIp(req)
@@ -48,7 +49,7 @@ app.post('/api/vuln1/login', (req, res) => {
 })
 
 app.get('/api/vuln1/test', (req, res) => {
-    res.send(`${req.body}`)
+    res.send(req.body)
 })
 
 app.get('/api/vuln1/admin', (req, res) => {
