@@ -46,7 +46,7 @@ app.post('/api/vuln1/login', (req, res) => {
 })
 
 app.get('/api/vuln1/test', (req, res) => {
-    res.send(req.body)
+    res.send(`${req.body}`)
 })
 
 app.get('/api/vuln1/admin', (req, res) => {
