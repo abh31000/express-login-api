@@ -58,12 +58,11 @@ app.get('/api/vuln1/admin', (req, res) => {
         res.sendStatus(400)
     }
 
-    else{
-        const test = users1.find((elem) => elem.username === username)
-        if(!test || test.isAdmin === "false"){
-            res.status(401).send("You don't have permission")
-        }
+    const test = users1.find(elem => elem.username === username)
+    if(!test || test.isAdmin === "false"){
+        res.status(401).send("You don't have permission")
     }
+    
 })
 
 
