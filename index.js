@@ -54,7 +54,8 @@ app.get('/api/vuln1/test', (req, res) => {
 
 app.get('/api/vuln1/admin', (req, res) => {
     const {username} = req.body
-    if(!username){
+    res.send(username)
+    /*if(!username){
         res.sendStatus(400)
     }
 
@@ -63,7 +64,7 @@ app.get('/api/vuln1/admin', (req, res) => {
     }
     if(!test || test.isAdmin === "false"){
         res.status(401).send("You don't have permission")
-    }
+    }*/
 })
 
 
