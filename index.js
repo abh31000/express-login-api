@@ -45,13 +45,19 @@ app.post('/api/vuln1/login', (req, res) => {
     res.status(200).send("Login successful")
 })
 
+app.get('/api/vuln1/test', (req, res) => {
+    res.send(req.body)
+})
+
 app.get('/api/vuln1/admin', (req, res) => {
     const {username} = req.body
     if(!username){
         res.sendStatus(400)
     }
-    
-    const test = users1.find((elem) => elem.username === username)
+
+    else{
+        const test = users1.find((elem) => elem.username === username)
+    }
     if(!test || test.isAdmin === "false"){
         res.status(401).send("You don't have permission")
     }
